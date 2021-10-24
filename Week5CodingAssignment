@@ -1,0 +1,92 @@
+class Pizza {
+    constructor(name, topping) {
+    this.name = name;
+    this.topping = topping;
+    }
+}
+
+describe() {
+    return `${this.name} has ${this.topping}.`;
+}
+
+
+class Menu {
+    constructor() {
+        this.names [];
+        this.selectedTopping = null;
+
+    }
+
+    start() {
+		let selection = this.showMainMenuOptions();
+		while (selection != 0) {
+			switch (selection) {
+				case '1':
+					this.createPizza();
+					break;
+				case '2':
+					this.viewPizza();
+					break;
+				case '3':
+					this.deletePizza();
+					break;
+				case '4':
+					this.displayPizza();
+					break;
+				default:
+					selection = 0;		
+			}
+			selection = this.showMainMenuOptions();
+		}
+
+        alert("Goodbye!");
+	}
+    
+	showMainMenuOptions() {
+		return prompt(`
+		0) exit
+		1) create new Pizza
+		2) view Pizza
+		3) delete team Pizza
+		4) display all Pizzas
+		`);
+    }
+
+  
+    }
+    displayPizza() {
+		let pizzaString = '';
+		for (let i = 0; i < this.pizzas.length; i++) {
+			pizzaString += i + ') ' + this.pizzas[i].name + '\n';
+		}
+		alert (pizzaString);
+	}
+
+	deletePizza() {
+		let index = prompt('Enter index for Pizza you wish to delete:');
+		if (index > -1 && index < this.pizzas.length){
+			this.pizzas.splice(index, 1);
+		}
+	}
+	
+	createPizza() {
+		let name = prompt('Enter name for new Pizza:');
+		this.pizzas.push(new Pizza(name));
+	}
+
+	viewPizza() {
+		let index = prompt('Enter the index of the pizza you wish to view:');
+		if (index > -1 && index < this.pizzas.length) {
+			this.selectedTopping = this.pizzas[index];
+			let description = 'Pizza Name: ' + this.selectedTopping.name + '\n';
+
+
+	
+			}
+			
+		}
+		
+}
+
+let menu = new Menu();
+menu.start();
